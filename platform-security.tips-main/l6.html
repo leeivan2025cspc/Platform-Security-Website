@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Lesson 6: Virtualization</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<style>
+			.lesson-part {
+			  opacity: 0;
+			  transition: opacity 0.5s ease-in-out;
+			  display: none;
+			}
+			.lesson-part.active {
+			  display: block;
+			  opacity: 1;
+			}
+		</style>
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo"><strong>Platform Security</strong> <span>Tips</span></a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="overview.html">Overview</a></li>
+					
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main" class="alt">
+			  <section id="one">
+			    <div class="inner">
+
+			      <header class="major">
+			        <h1>Lesson 6: Virtualization</h1>
+			      </header>
+			      <span class="image main" id="bannerImage"><img src="images/pic11.jpg" alt="" /></span>
+
+			      <!-- Part 1 -->
+			      <div class="lesson-part">
+			        <h3>What is Virtualization?</h3>
+			        <p>Virtualization is the technology that allows one physical machine to run multiple virtual environments. It abstracts the hardware layer, letting you run several operating systems or servers on a single device. Each virtual machine (VM) behaves as if it has its own hardware, but it is actually sharing resources with others.</p>
+
+			        <h4>Core Concept</h4>
+			        <p>At the heart of virtualization is the <b>hypervisor</b> - the software that manages and allocates resources like CPU, RAM, and storage between different virtual machines.</p>
+
+			        <ul style="padding-left: 20px;">
+			          <li><b>Type 1 (Bare Metal Hypervisors):</b> Installed directly on hardware. Examples include VMware ESXi, Microsoft Hyper-V, and XenServer.</li>
+			          <li><b>Type 2 (Hosted Hypervisors):</b> Run on top of an existing operating system, like VirtualBox or VMware Workstation.</li>
+			        </ul>
+
+			        <p><b>Real-world example:</b> Cloud providers like AWS and Google Cloud use Type 1 hypervisors to host thousands of isolated virtual servers on powerful machines, providing scalable on-demand computing.</p>
+			      </div>
+
+			      <!-- Part 2 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>Benefits of Virtualization</h3>
+			        <ul style="padding-left: 20px;">
+			          <li><b>Efficiency:</b> Maximizes hardware usage by running multiple systems on one machine.</li>
+			          <li><b>Isolation:</b> Each VM runs independently, so one system crashing does not affect the others.</li>
+			          <li><b>Scalability:</b> Makes deploying new servers or applications faster and easier.</li>
+			          <li><b>Cost Savings:</b> Reduces physical hardware needs, energy costs, and maintenance overhead.</li>
+			          <li><b>Disaster Recovery:</b> VMs can be easily backed up, cloned, and restored after system failures.</li>
+			        </ul>
+
+			        <p><b>Example:</b> A university IT lab may run dozens of student desktops using virtualization, allowing easy resets and updates without touching physical hardware.</p>
+			      </div>
+
+			      <!-- Part 3 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>Security Challenges in Virtualization</h3>
+			        <p>While virtualization improves flexibility, it also introduces new attack surfaces. A compromised hypervisor or misconfigured virtual machine can expose multiple systems at once.</p>
+
+			        <h4>Common Virtualization Risks</h4>
+			        <ul style="padding-left: 20px;">
+			          <li><b>VM Escape:</b> A malicious program breaks out of a virtual machine and interacts with the host system or other VMs.</li>
+			          <li><b>Misconfiguration:</b> Weak isolation or shared network settings can expose sensitive data.</li>
+			          <li><b>Snapshot Vulnerabilities:</b> Saved VM states may include passwords or sensitive memory data.</li>
+			          <li><b>Hyperjacking:</b> An attacker installs a rogue hypervisor beneath the existing OS, taking control of the entire machine.</li>
+			          <li><b>Insecure APIs:</b> Cloud environments often expose APIs for automation that, if misused, can lead to unauthorized access.</li>
+			        </ul>
+
+			        <p><b>Example:</b> In 2021, a vulnerability in VMware's ESXi hypervisor allowed attackers to run malicious code on the host, leading to ransomware infections across virtualized infrastructures.</p>
+			      </div>
+
+			      <!-- Part 4 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>Virtualization Security Best Practices</h3>
+			        <ul style="padding-left: 20px;">
+			          <li><b>Regular Patching:</b> Keep hypervisors, guest OSes, and management tools updated to fix known vulnerabilities.</li>
+			          <li><b>Network Segmentation:</b> Isolate VMs by function and sensitivity to prevent lateral movement.</li>
+			          <li><b>Use Secure Hypervisors:</b> Deploy trusted and well-supported hypervisors with strong authentication and logging.</li>
+			          <li><b>Least Privilege Access:</b> Limit administrative access to virtual management consoles.</li>
+			          <li><b>Encryption:</b> Encrypt VM disks, snapshots, and network traffic between virtual machines.</li>
+			          <li><b>Monitor and Audit:</b> Track activity and detect unusual behavior across virtual environments.</li>
+			        </ul>
+
+			        <p><b>Example:</b> A cloud provider like Azure uses hardware-based isolation (via TPM and Secure Boot) to protect each VM tenant, ensuring no one can access another customer's environment even on the same host.</p>
+			      </div>
+
+			      <!-- Part 5 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>Beyond Virtualization: Containers and Cloud</h3>
+			        <p>Modern computing continues to evolve beyond traditional virtualization. Containers, such as those managed by Docker or Kubernetes, take the concept further by sharing the same OS kernel while isolating applications.</p>
+
+			        <p>This creates faster, lightweight environments compared to full virtual machines. However, containers also depend on strict configuration and monitoring to maintain security boundaries.</p>
+
+			        <p><b>Example:</b> In DevOps, teams use Docker containers to build, test, and deploy applications consistently across different systems. Kubernetes orchestrates these containers, ensuring uptime and scalability.</p>
+
+			        <p>Understanding virtualization is essential for managing secure cloud and hybrid environments today. It serves as the foundation for most modern IT infrastructures, from enterprise data centers to your favorite streaming platforms.</p>
+			      </div>
+
+			      <!-- Actions -->
+			      <ul class="actions">
+			        <li><button id="prevButton" class="button" style="display:none;">Previous</button></li>
+			        <li><button id="nextButton" class="button primary">Next</button></li>
+			      </ul>
+
+			    </div>
+			  </section>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>&copy; BSIT-2D Platform Security</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<script>
+		  const parts = document.querySelectorAll('.lesson-part');
+		  const nextBtn = document.getElementById('nextButton');
+		  const prevBtn = document.getElementById('prevButton');
+		  const bannerImage = document.getElementById('bannerImage');
+		  let current = 0;
+
+		  parts[current].classList.add('active');
+
+		  function scrollToTop() {
+		    window.scrollTo({ top: 0, behavior: 'smooth' });
+		  }
+
+		  function updateButtons() {
+		    prevBtn.style.display = current === 0 ? 'none' : 'inline-block';
+		    if (current === parts.length - 1) {
+		      nextBtn.textContent = 'Finish';
+		      nextBtn.onclick = () => window.location.href = "index.html#one";
+		    } else {
+		      nextBtn.textContent = 'Next';
+		      nextBtn.onclick = goNext;
+		    }
+		    bannerImage.style.display = current === 0 ? 'block' : 'none';
+		  }
+
+		  function goNext() {
+		    parts[current].classList.remove('active');
+		    setTimeout(() => {
+		      parts[current].style.display = 'none';
+		      current++;
+		      parts[current].style.display = 'block';
+		      setTimeout(() => parts[current].classList.add('active'), 10);
+		      updateButtons();
+		      scrollToTop();
+		    }, 500);
+		  }
+
+		  function goPrev() {
+		    parts[current].classList.remove('active');
+		    setTimeout(() => {
+		      parts[current].style.display = 'none';
+		      current--;
+		      parts[current].style.display = 'block';
+		      setTimeout(() => parts[current].classList.add('active'), 10);
+		      updateButtons();
+		      scrollToTop();
+		    }, 500);
+		  }
+
+		  nextBtn.onclick = goNext;
+		  prevBtn.onclick = goPrev;
+		  updateButtons();
+		</script>
+
+	</body>
+</html>

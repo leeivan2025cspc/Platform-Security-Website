@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Lesson 2</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<style>
+			.lesson-part {
+			  opacity: 0;
+			  transition: opacity 0.5s ease-in-out;
+			  display: none;
+			}
+			.lesson-part.active {
+			  display: block;
+			  opacity: 1;
+			}
+		</style>
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo"><strong>Platform Security</strong> <span>Tips</span></a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="overview.html">Overview</a></li>
+					
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main" class="alt">
+			  <section id="one">
+			    <div class="inner">
+
+			      <header class="major">
+			        <h1>Lesson 2: Understanding the Risk Management Process</h1>
+			      </header>
+			      <span class="image main" id="bannerImage"><img src="images/pic09.jpg" alt="" /></span>
+
+			      <!-- Part 1 -->
+			      <div class="lesson-part">
+			        <h3>Information Security Risk</h3>
+			        <p>Information security risk refers to the potential adverse impacts that result from the possibility of unauthorized access, use, disclosure, disruption, modification, or destruction of information and/or information systems.</p>
+
+			        <h3>Risk Management Terminology</h3>
+			        <ul style="padding-left: 40px;">
+			          <li><b>Asset:</b> Anything of value that needs protection — tangible or intangible.</li>
+			          <li><b>Vulnerability:</b> A gap or weakness in protection efforts that can be exploited.</li>
+			          <li><b>Threat:</b> Something or someone that attempts to exploit a vulnerability.</li>
+			        </ul>
+
+			        <h4>Example:</h4>
+			        <p>Tourists are popular targets for pickpockets. The existence of pickpockets in a crowded tourist spot is a <b>threat</b>. If a pickpocket targets you, they become the <b>threat actor</b>, and their method is the <b>threat vector</b>.</p>
+			      </div>
+
+			      <!-- Part 2 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>Threat Actors</h3>
+			        <ul style="padding-left: 40px;">
+			          <li><b>Insiders:</b> Employees or personnel who may cause harm deliberately or by mistake.</li>
+			          <li><b>Outside Individuals/Groups:</b> Hackers or opportunists exploiting vulnerabilities.</li>
+			          <li><b>Non-Political Entities:</b> Cybercriminals or competitors.</li>
+			          <li><b>Political Entities:</b> Nation-states, terrorists, or hacktivists.</li>
+			          <li><b>Information Gatherers:</b> Any actor seeking intelligence or sensitive data.</li>
+			          <li><b>Technology:</b> Automated tools, bots, or AI used in cyberattacks.</li>
+			        </ul>
+			      </div>
+
+			      <!-- Part 3 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>Vulnerabilities</h3>
+			        <p>A vulnerability is an inherent weakness or flaw in a system or component that, if triggered or exploited, could cause a risk event to occur.</p>
+
+			        <h3>Risk Assessment</h3>
+			        <p>Risk assessment is the process of identifying, estimating, and prioritizing risks to an organization’s operations — including its mission, reputation, assets, and individuals.</p>
+			      </div>
+
+			      <!-- Part 4 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>Risk Treatment</h3>
+			        <p>Risk treatment involves deciding how to respond to identified and prioritized risks. The approach depends on management’s attitude toward risk, resource availability, and mitigation cost.</p>
+
+			        <h4>Main Risk Treatment Options:</h4>
+			        <ul style="padding-left: 40px;">
+			          <li><b>Avoidance:</b> Eliminating the risk entirely by removing the cause or activity.</li>
+			          <li><b>Acceptance:</b> Choosing to take no action and tolerating the risk.</li>
+			          <li><b>Mitigation:</b> Reducing the likelihood or impact of the risk through proactive measures.</li>
+			          <li><b>Transference:</b> Shifting the risk to another party (e.g., through insurance or outsourcing).</li>
+			        </ul>
+			      </div>
+
+			      <!-- Actions -->
+			      <ul class="actions">
+			        <li><button id="prevButton" class="button" style="display:none;">Previous</button></li>
+			        <li><button id="nextButton" class="button primary">Next</button></li>
+			      </ul>
+
+			    </div>
+			  </section>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>&copy; BSIT-2D Platform Security</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<script>
+		  const parts = document.querySelectorAll('.lesson-part');
+		  const nextBtn = document.getElementById('nextButton');
+		  const prevBtn = document.getElementById('prevButton');
+		  const bannerImage = document.getElementById('bannerImage');
+		  let current = 0;
+
+		  // show the first slide
+		  parts[current].classList.add('active');
+
+		  function scrollToTop() {
+		    window.scrollTo({ top: 0, behavior: 'smooth' });
+		  }
+
+		  function updateButtons() {
+		    prevBtn.style.display = current === 0 ? 'none' : 'inline-block';
+		    if (current === parts.length - 1) {
+		      nextBtn.textContent = 'Finish';
+		      nextBtn.onclick = () => window.location.href = "index.html#one";
+		    } else {
+		      nextBtn.textContent = 'Next';
+		      nextBtn.onclick = goNext;
+		    }
+		    bannerImage.style.display = current === 0 ? 'block' : 'none';
+		  }
+
+		  function goNext() {
+		    parts[current].classList.remove('active');
+		    setTimeout(() => {
+		      parts[current].style.display = 'none';
+		      current++;
+		      parts[current].style.display = 'block';
+		      setTimeout(() => parts[current].classList.add('active'), 10);
+		      updateButtons();
+		      scrollToTop();
+		    }, 500);
+		  }
+
+		  function goPrev() {
+		    parts[current].classList.remove('active');
+		    setTimeout(() => {
+		      parts[current].style.display = 'none';
+		      current--;
+		      parts[current].style.display = 'block';
+		      setTimeout(() => parts[current].classList.add('active'), 10);
+		      updateButtons();
+		      scrollToTop();
+		    }, 500);
+		  }
+
+		  nextBtn.onclick = goNext;
+		  prevBtn.onclick = goPrev;
+		  updateButtons();
+		</script>
+
+	</body>
+</html>

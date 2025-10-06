@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Lesson 5: Platform Architecture & Trusted Platform Module (TPM)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<style>
+			.lesson-part {
+			  opacity: 0;
+			  transition: opacity 0.5s ease-in-out;
+			  display: none;
+			}
+			.lesson-part.active {
+			  display: block;
+			  opacity: 1;
+			}
+		</style>
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo"><strong>Platform Security</strong> <span>Tips</span></a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="overview.html">Overview</a></li>
+					
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main" class="alt">
+			  <section id="one">
+			    <div class="inner">
+
+			      <header class="major">
+			        <h1>Lesson 5: Platform Architecture & Trusted Platform Module (TPM)</h1>
+			      </header>
+			      <span class="image main" id="bannerImage"><img src="images/pic11.jpg" alt="" /></span>
+
+			      <!-- Part 1 -->
+			      <div class="lesson-part">
+			        <h3>Understanding Platform Architecture</h3>
+			        <p>Platform architecture defines how the different layers of a computing system work together, from the physical hardware to the applications we use every day. Each layer plays a crucial role in maintaining functionality, efficiency, and most importantly, security.</p>
+
+			        <h4>Layers of a Computing Platform</h4>
+			        <ul style="padding-left: 20px;">
+			          <li><b>Hardware:</b> Physical components like CPU, memory, and storage form the foundation. Security risks at this level include physical tampering and side-channel attacks.</li>
+			          <li><b>Firmware:</b> Programs like BIOS or UEFI that initialize hardware. Attackers may implant firmware-level malware that hides from the OS.</li>
+			          <li><b>Operating System:</b> Acts as the bridge between users, applications, and hardware. Common threats include privilege escalation and kernel exploits.</li>
+			          <li><b>Applications:</b> User-level software. Vulnerabilities in apps can expose the entire platform to malware or data breaches.</li>
+			        </ul>
+
+			        <p><b>Real-world example:</b> The 2018 Meltdown and Spectre vulnerabilities exploited flaws in CPU architecture, showing that even hardware design decisions can affect global cybersecurity.</p>
+			      </div>
+
+			      <!-- Part 2 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>Mobile vs Desktop Platforms</h3>
+			        <p>Different platforms have unique architectures and therefore different security priorities.</p>
+
+			        <h4>Mobile Platforms</h4>
+			        <ul style="padding-left: 20px;">
+			          <li>Highly integrated hardware and software.</li>
+			          <li>App sandboxing limits data access between apps.</li>
+			          <li>Frequent updates and permissions for tighter control.</li>
+			        </ul>
+
+			        <h4>Desktop Platforms</h4>
+			        <ul style="padding-left: 20px;">
+			          <li>Offer flexibility and performance at the cost of a larger attack surface.</li>
+			          <li>Users often have administrative privileges, increasing risk.</li>
+			          <li>Malware can run persistently if not properly managed.</li>
+			        </ul>
+
+			        <p><b>Example:</b> Android uses sandboxing to prevent apps from reading each other's data, while Windows prioritizes user control and versatility—sometimes at the cost of stricter isolation.</p>
+			      </div>
+
+			      <!-- Part 3 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>Trusted Platform Module (TPM)</h3>
+			        <p>The Trusted Platform Module is a dedicated hardware chip designed to enhance security by providing cryptographic functions and secure key storage. It acts as a "root of trust" for the system.</p>
+
+			        <ul style="padding-left: 20px;">
+			          <li><b>Secure Storage:</b> TPM keeps encryption keys, passwords, and certificates isolated from the main CPU and OS.</li>
+			          <li><b>System Integrity:</b> Verifies that firmware and the OS have not been tampered with before booting.</li>
+			          <li><b>Hardware-based Encryption:</b> Offers stronger protection than software-only solutions.</li>
+			        </ul>
+
+			        <h4>Chain of Trust</h4>
+			        <p>TPM verifies each stage of the boot process:</p>
+			        <ul style="padding-left: 20px;">
+			          <li>Firmware checks the bootloader.</li>
+			          <li>Bootloader verifies the operating system kernel.</li>
+			          <li>The OS validates drivers and critical components.</li>
+			        </ul>
+
+			        <p><b>Real-world example:</b> Windows BitLocker uses TPM to securely store disk encryption keys. Without TPM validation, BitLocker refuses to unlock the drive, preventing attackers from booting the OS on another device.</p>
+			      </div>
+
+			      <!-- Part 4 -->
+			      <div class="lesson-part" style="display:none;">
+			        <h3>TPM Versions and Limitations</h3>
+			        <ul style="padding-left: 20px;">
+			          <li><b>TPM 1.2:</b> Introduced RSA and SHA-1 cryptography.</li>
+			          <li><b>TPM 2.0:</b> Supports stronger algorithms like SHA-256 and ECC, required by Windows 11.</li>
+			        </ul>
+
+			        <h4>Benefits of TPM</h4>
+			        <ul style="padding-left: 20px;">
+			          <li>Prevents firmware-level malware (rootkits and bootkits).</li>
+			          <li>Ensures secure boot processes.</li>
+			          <li>Supports trusted computing in enterprise environments.</li>
+			        </ul>
+
+			        <h4>Limitations</h4>
+			        <ul style="padding-left: 20px;">
+			          <li>Not all devices have TPM hardware.</li>
+			          <li>Failed TPM chips can cause data loss on encrypted drives.</li>
+			          <li>Cannot protect against OS-level malware or physical attacks once booted.</li>
+			        </ul>
+
+			        <p><b>Example:</b> Many modern laptops now ship with integrated TPM 2.0 chips, while older PCs require firmware-based fTPM solutions from AMD or Intel. This shift shows how hardware trust anchors are becoming standard in modern computing.</p>
+			      </div>
+
+			      <!-- Actions -->
+			      <ul class="actions">
+			        <li><button id="prevButton" class="button" style="display:none;">Previous</button></li>
+			        <li><button id="nextButton" class="button primary">Next</button></li>
+			      </ul>
+
+			    </div>
+			  </section>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>&copy; BSIT-2D Platform Security</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<script>
+		  const parts = document.querySelectorAll('.lesson-part');
+		  const nextBtn = document.getElementById('nextButton');
+		  const prevBtn = document.getElementById('prevButton');
+		  const bannerImage = document.getElementById('bannerImage');
+		  let current = 0;
+
+		  parts[current].classList.add('active');
+
+		  function scrollToTop() {
+		    window.scrollTo({ top: 0, behavior: 'smooth' });
+		  }
+
+		  function updateButtons() {
+		    prevBtn.style.display = current === 0 ? 'none' : 'inline-block';
+		    if (current === parts.length - 1) {
+		      nextBtn.textContent = 'Finish';
+		      nextBtn.onclick = () => window.location.href = "index.html#one";
+		    } else {
+		      nextBtn.textContent = 'Next';
+		      nextBtn.onclick = goNext;
+		    }
+		    bannerImage.style.display = current === 0 ? 'block' : 'none';
+		  }
+
+		  function goNext() {
+		    parts[current].classList.remove('active');
+		    setTimeout(() => {
+		      parts[current].style.display = 'none';
+		      current++;
+		      parts[current].style.display = 'block';
+		      setTimeout(() => parts[current].classList.add('active'), 10);
+		      updateButtons();
+		      scrollToTop();
+		    }, 500);
+		  }
+
+		  function goPrev() {
+		    parts[current].classList.remove('active');
+		    setTimeout(() => {
+		      parts[current].style.display = 'none';
+		      current--;
+		      parts[current].style.display = 'block';
+		      setTimeout(() => parts[current].classList.add('active'), 10);
+		      updateButtons();
+		      scrollToTop();
+		    }, 500);
+		  }
+
+		  nextBtn.onclick = goNext;
+		  prevBtn.onclick = goPrev;
+		  updateButtons();
+		</script>
+
+	</body>
+</html>

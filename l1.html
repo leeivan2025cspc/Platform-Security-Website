@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Lesson 1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <style>
+      /* === Page fade in/out === */
+      body {
+        opacity: 0;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        transform: translateY(10px);
+      }
+      body.loaded {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      body.fade-out {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      /* === Lesson part transitions === */
+      .lesson-part {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+        display: none;
+      }
+      .lesson-part.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Buttons */
+      .button {
+        transition: all 0.3s ease;
+      }
+      .button:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo transition-link"><strong>Platform Security</strong> <span>Tips</span></a>
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
+
+      <!-- Menu -->
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="index.html" class="transition-link">Home</a></li>
+          <li><a href="overview.html" class="transition-link">Overview</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main" class="alt">
+        <section id="one">
+          <div class="inner">
+
+            <header class="major">
+              <h1>Lesson 1: Introduction to Platform Security</h1>
+            </header>
+            <span class="image main" id="bannerImage"><img src="images/lesson 1.jpg" alt="" /></span>
+
+            <!-- Part 1 -->
+            <div class="lesson-part">
+              <h3>What is Platform Security?</h3>
+              It refers to the set of strategies, tools, and policies used to protect the hardware, operating system, 
+              and software environments from cyber threats and unauthorized access.
+
+              <h4 style="text-indent: 40px;">Scope of Platform Security:</h4>
+              <ul style="padding-left: 60px;">
+                <li>covers physical devices, virtualization layers, OS, applications, and APIs</li>
+                <li>applies to mobile, cloud, desktop, IoT, and enterprise systems</li>
+              </ul>
+            
+              <h3>Importance of Platform Security</h3>
+              Platforms are the foundation for applications and services. A breach at the platform level can compromise everything built on it.
+
+              <h4 style="text-indent: 40px;">Benefits:</h4>
+              <ul style="padding-left: 60px;">
+                <li>Protects sensitive data from theft or loss</li>
+                <li>Prevents downtime that affects productivity</li>
+                <li>Ensures compliance with security regulations (e.g., GDPR, HIPAA)</li>
+                <li>Maintains user trust in the system or service</li>
+              </ul>
+            
+              <h3>Common Threats to Platforms</h3>
+              <ul style="padding-left: 20px;">
+                <li><b>Malware</b> - Viruses, ransomware, spyware targeting system files</li>
+                <li><b>Privilege Escalation</b> - Attackers gaining admin-level access</li>
+                <li><b>Zero-Day Exploits</b> - Attacks exploiting unpatched vulnerabilities</li>
+                <li><b>Rootkits</b> - Malicious code hidden deep in the OS</li>
+                <li><b>Firmware Attacks</b> - Compromising the BIOS/UEFI or device drivers</li>
+                <li><b>Insider Threats</b> - Employees misusing access rights</li>
+              </ul>
+            
+              <h3>Layers of Platform Security</h3>
+              <ul style="padding-left: 20px;">
+                <li><b>Physical Security</b> - Protecting hardware from theft or tampering</li>
+                <li><b>Firmware & Boot Security</b> - Secure boot, BIOS/UEFI passwords</li>
+                <li><b>Operating System Security</b> - Patch management, user privilege control</li>
+                <li><b>Application Security</b> - Sandboxing, code signing, app permissions</li>
+                <li><b>Network Security</b> - Firewalls, VPNs, intrusion detection/prevention</li>
+                <li><b>Data Security</b> - Encryption at rest and in transit</li>
+              </ul>
+            </div>
+          
+            <!-- Part 2 -->
+            <div class="lesson-part" style="display:none;">
+              <h3>The CIA Triad</h3>
+              <span class="image fit"><img src="images/CIA.jpg" alt="" /></span>
+              <h3>Confidentiality</h3>
+              Security professional's obligation is to regulate access—protect data that needs protection, yet permit access to authorized individuals.
+            </div>
+
+            <!-- Part 3 -->
+            <div class="lesson-part" style="display:none;">
+              <h3>Authentication</h3>
+              The process of verifying or proving the user’s identification.
+              <ul style="padding-left: 60px;">
+                <li><b>1. Something you know:</b> Passwords or passphrases</li>
+                <li><b>2. Something you have:</b> Tokens, memory cards, smart cards</li>
+                <li><b>3. Something you are:</b> Biometrics, measurable characteristics</li>
+              </ul>
+            </div>
+
+            <!-- Actions -->
+            <ul class="actions">
+              <li><button id="prevButton" class="button" style="display:none;">Previous</button></li>
+              <li><button id="nextButton" class="button primary">Next</button></li>
+            </ul>
+
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <ul class="copyright">
+            <li>&copy; BSIT-2D Platform Security</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      // Page fade in
+      window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+      });
+
+      // Page fade out before leaving
+      document.querySelectorAll('a.transition-link').forEach(link => {
+        link.addEventListener('click', e => {
+          const href = link.getAttribute('href');
+          if (href && !href.startsWith('#')) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => window.location.href = href, 400);
+          }
+        });
+      });
+
+      // Lesson transitions
+      const parts = document.querySelectorAll('.lesson-part');
+      const nextBtn = document.getElementById('nextButton');
+      const prevBtn = document.getElementById('prevButton');
+      const bannerImage = document.getElementById('bannerImage');
+      let current = 0;
+
+      parts[current].classList.add('active');
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function updateButtons() {
+        prevBtn.style.display = current === 0 ? 'none' : 'inline-block';
+        if (current === parts.length - 1) {
+          nextBtn.textContent = 'Finish';
+          nextBtn.onclick = () => window.location.href = "index.html#one";
+        } else {
+          nextBtn.textContent = 'Next';
+          nextBtn.onclick = goNext;
+        }
+        bannerImage.style.display = current === 0 ? 'block' : 'none';
+      }
+
+      function goNext() {
+        parts[current].classList.remove('active');
+        setTimeout(() => {
+          parts[current].style.display = 'none';
+          current++;
+          parts[current].style.display = 'block';
+          setTimeout(() => parts[current].classList.add('active'), 20);
+          updateButtons();
+          scrollToTop();
+        }, 400);
+      }
+
+      function goPrev() {
+        parts[current].classList.remove('active');
+        setTimeout(() => {
+          parts[current].style.display = 'none';
+          current--;
+          parts[current].style.display = 'block';
+          setTimeout(() => parts[current].classList.add('active'), 20);
+          updateButtons();
+          scrollToTop();
+        }, 400);
+      }
+
+      nextBtn.onclick = goNext;
+      prevBtn.onclick = goPrev;
+      updateButtons();
+    </script>
+
+  </body>
+</html>

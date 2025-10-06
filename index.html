@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Platform Security Tips</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Page fade animation for global navigation */
+      body {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      body.loaded {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      body.fade-out {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      .button {
+        transition: all 0.3s ease;
+      }
+      .button:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Header -->
+      <header id="header" class="alt">
+        <a href="index.html" class="logo"><strong>Platform Security</strong> <span>Tips</span></a>
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
+
+      <!-- Menu -->
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="l1.html">Lesson 1</a></li>
+          <li><a href="l2.html">Lesson 2</a></li>
+          <li><a href="l3.html">Lesson 3</a></li>
+          <li><a href="l4.html">Lesson 4</a></li>
+          <li><a href="l5.html">Lesson 5</a></li>
+          <li><a href="l6.html">Lesson 6</a></li>
+        </ul>
+      </nav>
+
+      <!-- Banner -->
+      <section id="banner" class="major">
+        <div class="inner">
+          <header class="major">
+            <h1>Welcome to Platform Security</h1>
+          </header>
+          <div class="content">
+            <p>Explore lessons that build your understanding of platform security concepts, architecture, and virtualization.</p>
+            <ul class="actions">
+              <li><a href="overview.html" class="button next scrolly">Get Started</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main -->
+      <div id="main">
+        <section id="one" class="tiles">
+          <article>
+            <span class="image">
+              <img src="images/pic01.jpg" alt="" />
+            </span>
+            <header class="major">
+              <h3><a href="l1.html" class="link">Lesson 1</a></h3>
+              <p>Introduction to Platform Security</p>
+            </header>
+          </article>
+          <article>
+            <span class="image">
+              <img src="images/pic02.jpg" alt="" />
+            </span>
+            <header class="major">
+              <h3><a href="l2.html" class="link">Lesson 2</a></h3>
+              <p>Hardware Security</p>
+            </header>
+          </article>
+          <article>
+            <span class="image">
+              <img src="images/pic03.jpg" alt="" />
+            </span>
+            <header class="major">
+              <h3><a href="l3.html" class="link">Lesson 3</a></h3>
+              <p>Firmware and BIOS Security</p>
+            </header>
+          </article>
+          <article>
+            <span class="image">
+              <img src="images/pic04.jpg" alt="" />
+            </span>
+            <header class="major">
+              <h3><a href="l4.html" class="link">Lesson 4</a></h3>
+              <p>Operating System Security</p>
+            </header>
+          </article>
+          <article>
+            <span class="image">
+              <img src="images/pic05.jpg" alt="" />
+            </span>
+            <header class="major">
+              <h3><a href="l5.html" class="link">Lesson 5</a></h3>
+              <p>TPM & Platform Architecture</p>
+            </header>
+          </article>
+          <article>
+            <span class="image">
+              <img src="images/pic06.jpg" alt="" />
+            </span>
+            <header class="major">
+              <h3><a href="l6.html" class="link">Lesson 6</a></h3>
+              <p>Virtualization & Cloud Security</p>
+            </header>
+          </article>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <div class="inner">
+          <ul class="copyright">
+            <li>&copy; BSIT-2D Platform Security</li>
+            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Smooth page transitions -->
+    <script>
+      // Fade in on load
+      window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+      });
+
+      // Fade out on navigation
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          link.addEventListener('click', e => {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => window.location.href = href, 400);
+          });
+        }
+      });
+    </script>
+
+  </body>
+</html>

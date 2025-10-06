@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Lesson 4: Common Platform Threats</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<style>
+			.lesson-part {
+			  opacity: 0;
+			  transition: opacity 0.5s ease-in-out;
+			  display: none;
+			}
+			.lesson-part.active {
+			  display: block;
+			  opacity: 1;
+			}
+		</style>
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo"><strong>Platform Security</strong> <span>Tips</span></a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="overview.html">Overview</a></li>
+					
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main" class="alt">
+				<section id="one">
+					<div class="inner">
+
+						<header class="major">
+							<h1>Lesson 4: Common Platform Threats</h1>
+						</header>
+						<span class="image main" id="bannerImage"><img src="images/pic11.jpg" alt="" /></span>
+
+						<!-- Part 1 -->
+						<div class="lesson-part">
+							<h3>Introduction</h3>
+							<p>Now that you've seen how human factors influence cybersecurity, let's look at the more technical side, the threats that target platforms themselves. These attacks often exploit weaknesses in hardware, software, and networks, sometimes combined with human error to achieve devastating effects.</p>
+
+							<h3>Understanding Platform Threats</h3>
+							<p>Platform threats are vulnerabilities or attack methods that target the foundation of digital systems, including hardware, operating systems, and software platforms that host applications and services.</p>
+
+							<ul style="padding-left: 40px;">
+								<li>They aim to disrupt, damage, or gain unauthorized control of a computing environment.</li>
+								<li>They often serve as the entry point for larger attacks like ransomware or data breaches.</li>
+								<li>Commonly exploit weaknesses in system configurations, unpatched software, and insecure user practices.</li>
+							</ul>
+						</div>
+
+						<!-- Part 2 -->
+						<div class="lesson-part" style="display:none;">
+							<h3>Malware and Software Exploits</h3>
+							<p>Malicious software remains one of the most common and dangerous threats to platform security. Each type has a specific objective, from stealing data to taking full control of a device.</p>
+
+							<ul style="padding-left: 40px;">
+								<li><b>Viruses</b> - Attach to legitimate programs and replicate when executed.</li>
+								<li><b>Worms</b> - Spread automatically across systems and networks without user action.</li>
+								<li><b>Trojan Horses</b> - Disguise themselves as harmless software to trick users into installing them.</li>
+								<li><b>Ransomware</b> - Encrypts data and demands payment to restore access.</li>
+								<li><b>Spyware</b> - Secretly collects information about the user or system activities.</li>
+								<li><b>Rootkits</b> - Hide deep within the operating system to conceal malicious activity.</li>
+							</ul>
+
+							<p>Many malware infections exploit outdated systems or users who install software from unverified sources. Regular patching and software verification are crucial defenses.</p>
+						</div>
+
+						<!-- Part 3 -->
+						<div class="lesson-part" style="display:none;">
+							<h3>Network and Platform-Level Attacks</h3>
+							<p>While malware focuses on software, other threats exploit weaknesses in how platforms communicate and authenticate.</p>
+
+							<ul style="padding-left: 40px;">
+								<li><b>Denial-of-Service (DoS) Attacks</b> - Overload systems or networks to make them unavailable to users.</li>
+								<li><b>Man-in-the-Middle (MitM)</b> - Intercept and alter communication between two systems without detection.</li>
+								<li><b>Privilege Escalation</b> - Attackers exploit system flaws to gain admin-level control.</li>
+								<li><b>Zero-Day Exploits</b> - Use newly discovered vulnerabilities before they can be patched.</li>
+								<li><b>Firmware Attacks</b> - Target BIOS or UEFI to take control before the operating system even loads.</li>
+							</ul>
+
+							<p>Because these threats operate at a deeper system level, they are harder to detect and require strong platform hardening and secure update mechanisms.</p>
+						</div>
+
+						<!-- Part 4 -->
+						<div class="lesson-part" style="display:none;">
+							<h3>Human-Driven Threats</h3>
+							<p>Technology alone isn't the only weak point, people can often be manipulated into helping attackers. Many technical breaches start with social engineering or insider actions.</p>
+
+							<ul style="padding-left: 40px;">
+								<li><b>Social Engineering</b> - Manipulating individuals into revealing sensitive data or granting access (e.g., phishing emails).</li>
+								<li><b>Insider Threats</b> - Employees or partners misusing access privileges intentionally or carelessly.</li>
+								<li><b>Credential Reuse</b> - Users reusing passwords across platforms make attacks easier.</li>
+								<li><b>Negligence</b> - Failing to follow security policies, such as ignoring updates or using insecure devices.</li>
+							</ul>
+
+							<p>Even well-designed systems can fail if users aren't aware of risks or don't take proper precautions.</p>
+						</div>
+
+						<!-- Part 5 -->
+						<div class="lesson-part" style="display:none;">
+							<h3>Defending Against Platform Threats</h3>
+							<p>Effective defense involves both technical and behavioral strategies to build resilience against diverse threats.</p>
+
+							<h4>Technical Countermeasures:</h4>
+							<ul style="padding-left: 40px;">
+								<li>Keep all software, OS, and firmware updated.</li>
+								<li>Use endpoint protection tools (antivirus, EDR solutions).</li>
+								<li>Enable firewalls and secure boot configurations.</li>
+								<li>Encrypt sensitive data both at rest and in transit.</li>
+								<li>Regularly back up critical data and test recovery plans.</li>
+							</ul>
+
+							<h4>Behavioral Countermeasures:</h4>
+							<ul style="padding-left: 40px;">
+								<li>Train users to recognize phishing and social engineering attempts.</li>
+								<li>Encourage strong, unique passwords and MFA (Multi-Factor Authentication).</li>
+								<li>Promote a culture of cybersecurity awareness and accountability.</li>
+							</ul>
+
+							<p>Remember, security is not a one-time setup, it's an ongoing process that evolves alongside new technologies and threats.</p>
+						</div>
+
+						<!-- Actions -->
+						<ul class="actions">
+							<li><button id="prevButton" class="button" style="display:none;">Previous</button></li>
+							<li><button id="nextButton" class="button primary">Next</button></li>
+						</ul>
+
+					</div>
+				</section>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>&copy; BSIT-2D Platform Security</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<script>
+			const parts = document.querySelectorAll('.lesson-part');
+			const nextBtn = document.getElementById('nextButton');
+			const prevBtn = document.getElementById('prevButton');
+			const bannerImage = document.getElementById('bannerImage');
+			let current = 0;
+
+			parts[current].classList.add('active');
+
+			function scrollToTop() {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+
+			function updateButtons() {
+				prevBtn.style.display = current === 0 ? 'none' : 'inline-block';
+				if (current === parts.length - 1) {
+					nextBtn.textContent = 'Finish';
+					nextBtn.onclick = () => window.location.href = "index.html#one";
+				} else {
+					nextBtn.textContent = 'Next';
+					nextBtn.onclick = goNext;
+				}
+				bannerImage.style.display = current === 0 ? 'block' : 'none';
+			}
+
+			function goNext() {
+				parts[current].classList.remove('active');
+				setTimeout(() => {
+					parts[current].style.display = 'none';
+					current++;
+					parts[current].style.display = 'block';
+					setTimeout(() => parts[current].classList.add('active'), 10);
+					updateButtons();
+					scrollToTop();
+				}, 500);
+			}
+
+			function goPrev() {
+				parts[current].classList.remove('active');
+				setTimeout(() => {
+					parts[current].style.display = 'none';
+					current--;
+					parts[current].style.display = 'block';
+					setTimeout(() => parts[current].classList.add('active'), 10);
+					updateButtons();
+					scrollToTop();
+				}, 500);
+			}
+
+			nextBtn.onclick = goNext;
+			prevBtn.onclick = goPrev;
+			updateButtons();
+		</script>
+
+	</body>
+</html>
