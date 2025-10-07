@@ -7,43 +7,75 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <style>
-      /* === Page fade animation === */
-      body {
-        opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-      }
-      body.loaded {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      body.fade-out {
-        opacity: 0;
-        transform: translateY(10px);
-      }
+     <style>
+  /* fade-in on load */
+  body {
+    opacity: 0;
+    transition: opacity 0.45s ease;
+  }
+  body.loaded {
+    opacity: 1;
+  }
 
-      /* === Lesson part fade-slide === */
-      .lesson-part {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease;
-        display: none;
-      }
-      .lesson-part.active {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-      }
+  /* overlay styles (same id used by index) */
+  #transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    z-index: 9999;
+  }
+  #transition-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+</style>
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  /* === MENU FUNCTION === */
+  const menuTrigger = document.querySelector('a[href="#menu"]');
+  const menu = document.getElementById("menu");
 
-      /* === Button hover === */
-      .button {
-        transition: all 0.3s ease;
+  if (menuTrigger && menu) {
+    menuTrigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      menu.classList.toggle("active");
+      document.body.classList.toggle("menu-visible");
+    });
+
+    menu.addEventListener("click", (e) => {
+      if (e.target === menu) {
+        menu.classList.remove("active");
+        document.body.classList.remove("menu-visible");
       }
-      .button:hover {
-        transform: scale(1.05);
-      }
-    </style>
+    });
+  }
+
+  /* === SMOOTH PAGE TRANSITION === */
+  document.addEventListener('DOMContentLoaded', function () {
+  // create single overlay
+  const overlay = document.createElement('div');
+  overlay.id = 'transition-overlay';
+  document.body.appendChild(overlay);
+
+  // attach fade-out only to the link(s) that go to l1.html
+  document.querySelectorAll('a[href="l1.html"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      // allow modifier clicks / new tabs to behave normally
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      overlay.classList.add('active');          // start fade-to-black
+      setTimeout(() => window.location.href = link.href, 450); // navigate after fade
+    }, true); // capture phase to run before other listeners
+  });
+});
+});
+// add loaded class when DOM ready (you already have something like this in l1; keep it)
+  document.addEventListener('DOMContentLoaded', function () {
+    document.body.classList.add('loaded');
+</script>
   </head>
 
   <body class="is-preload">

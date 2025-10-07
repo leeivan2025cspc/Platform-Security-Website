@@ -3823,7 +3823,7 @@ input, select, textarea {
 			transform: rotateX(20deg);
 			-webkit-overflow-scrolling: touch;
 			max-width: 100%;
-			max-height: 100vh;
+			max-height: 1000vh;
 			opacity: 0;
 			overflow: auto;
 			text-align: center;
@@ -3950,3 +3950,20 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+		#transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out;
+  z-index: 9999;
+}
+#transition-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
